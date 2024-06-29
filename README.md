@@ -1,4 +1,4 @@
-# Stadtradeln Crawling
+# Stadtradeln Constance Crawling
 
 As of today 29th June 2024, the stadtradeln event for the city of Constance has concluded. 
 
