@@ -6,6 +6,15 @@ Currently, there is a week-long timeframe, where furhter submissions are allowed
 
 After this week is over, I will upload my **cleaned** raw data and some evaluation figures about it. 
 
+#### Vocabulary
+
+I will refer to some things that needs explaining: 
+
+- active time period: 
+The time period where the event was currently ongoing the the city of Constance. Started 2024 - 06 - 08 T 00:00:00 and ended 2024 - 06 - 28 T 23:59:00. 
+
+- passive time period: 
+The time period, where the event was over, however it was allowed to submit further rides. This is a week long time period. Started 2024 - 06 - 29 T 00:00:00 and Ended 2024 - 07 - 05 T 23:59:00. 
 
 ## Crawling Code
 
