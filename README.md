@@ -39,6 +39,10 @@ The second figure is a closeup of the first week where the competition was quite
 
 The blue columns mark the respective weekends. Naturally, the event for Konstanz started at a Saturday and ended on a Friday. 
 
+
+![bottom_teams](evaluations/km_bottom_10_teams.png)
+
+
 ## Participating Riders per team 
 
 
