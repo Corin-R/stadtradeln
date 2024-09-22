@@ -24,9 +24,11 @@ There is a README explaining the usage and details and possibly changes to the c
 
 # Analysis
 
-## Kilometers traveled by top 10 teams
+Before we start with the analysis, note that I will only provide helpful Figures that produce some insights in the event. 
 
-See these figures
+What we can conclude from them is left to the readers
+
+## Kilometers traveled by top 10 teams
 
 
 ![Kilometers](evaluations/km_top_10_teams_f.png)
@@ -58,12 +60,19 @@ The wether data was downloaded after the event from meteoblue.com
 
 ## Tables
 
+In the following, two tables are presented. 
 
-Teams in the passive time period, where it is allowed to submit further rides. 
+These tables show the **increase** in a given time period for a team. 
 
-This table shows the increase of the respective categories in the passive time period 
+If a team is present in the following tables, it is in the top 10 teams of a specific category. 
 
-All Teams ocurring here are in the top 10 of at least 1 category 
+The categories are sum of km, riders, rides and km per head. 
+
+To explain with an example: 
+
+The team Stadtverwaltung Konstanz had 85 new participating riders in the active period whereas 3 new participating riders in the passive period. 
+
+Likewise, the team Stadtverwaltung submitted 15655 km in the active period and 1741 km the passive period. 
 
 
 ### Top Teams by category in the active period
@@ -151,3 +160,13 @@ There are some duplicate timestamps at 20:00 the same day, which is attributed t
 
 Lesson learned, I will timestamp my crawl using utc and not local pc time. 
 
+### Further comments
+
+Since this event is a yearly event, I will crawl the code again as well and post updates here :) 
+
+If you have any questions or suggestions what is nice to be tracked / analysed, please feel free to contact me. 
+
+What I will add in my next crawl 
+
+- Weather data
+- More consistent crawling and backups to not lose data
