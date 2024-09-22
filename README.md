@@ -49,11 +49,84 @@ The blue columns mark the respective weekends. Naturally, the event for Konstanz
 ![Riders](evaluations/Number_Of_Riders_Top_Teams_f.png)
 
 
+
 ## Weather
 
 The wether data was downloaded after the event from meteoblue.com 
 
 ![weather](evaluations/meteogram_history.png)
+
+## Tables
+
+
+Teams in the passive time period, where it is allowed to submit further rides. 
+
+This table shows the increase of the respective categories in the passive time period 
+
+All Teams ocurring here are in the top 10 of at least 1 category 
+
+
+### Top Teams by category in the active period
+
+|team                                                | sum_km | riders |  rides |  km_per_head |
+|---                                                |---:     |---:     |---:    |---:|
+|Universität Konstanz                                | 28397 | 130 |  3112 |  218 |
+|Stadtverwaltung Konstanz                            | 15655 | 85 |  2032 |  184 |
+|Grundschule Wollmatingen Konstanz                   | 9819 | 71 |  1606 |  138 |
+|Spitalstiftung Konstanz                             | 9702 | 33 |  983 |  294 |
+|SÜDKURIER GmbH Medienhaus                           | 9660 | 37 |  836 |  302 |
+|HTWG-Konstanz                                       | 8713 | 57 |  954 |  153 |
+|Montessori Kinderhaus                               | 6848 | 31 |  1012 |  221 |
+|Team Kath.Kirchengemeinde Wollmatingen-Allensbach   | 6602 | 35 |  661 |  189 |
+|INGUN                                               | 6359 | 22 |  425 |  289 |
+|DLRG Ortsgruppe Konstanz                            | 5983 | 27 |  863 |  222 |
+|Mountainbike Club Konstanz e.V.                     | 2377 | 1008 |  155 |  204 |
+|Kinderhaus St.Gebhard                               | 3644 | 43 |  776 |  85 |
+|Seezeit Studierendenwerk Bodensee                   | 5035 | 36 |  698 |  140 |
+|Grundschule Dettingen Konstanz                      | 4746 | 34 |  460 |  140 |
+|Christiani-Team                                     | 3588 | 17 |  1124 |  224 |
+|Taylors Treter Truppe                               | 5415 | 31 |  846 |  175 |
+|Alt aber zäh                                        | 670 | 1 |  14 |  670 |
+|Zwilab                                              | 3725 | 10 |  293 |  373 |
+|Bauphysik for Future GSA                            | 2604 | 7 |  261 |  372 |
+|Eule                                                | 737 | 2 |  29 |  369 |
+|ADFCTeam                                            | 5399 | 16 |  385 |  337 |
+|Health for future                                   | 2245 | 7 |  231 |  321 |
+|Hämmerle-Recycling                                  | 958 | 3 |  107 |  319 |
+|Team Dingelsdorf                                    | 2874 | 9 |  176 |  319 |
+|KNIME Cycling                                       | 3158 | 10 |  134 |  316 |
+|CineStar Konstanz                                   | 1871 | 6 |  95 |  312 |
+
+
+
+### Top Teams by category in the passive period
+
+
+|team                                               | sum_km | riders | rides | km_per_head |
+|---                                                |---:     |---:     |---:    |---:|
+|Stadtverwaltung Konstanz                           | 1741   | 3 | 201 | 14 |
+|Universität Konstanz                               | 1675   | 5 | 214 | 6 |
+|Offenes Team - Konstanz                            | 1551   | 9 | 105 | 16 |
+|Team Kath.Kirchengemeinde Wollmatingen-Allensbach  | 1181   | 0 | 107 | 33 |
+|RoboRiders                                         | 794    | 1 | 14 | 59 |
+|Zeppelin-Gewerbeschule Konstanz                    | 674    | 0 | 29 | 36 |
+|HTWG-Konstanz                                      | 612    | 1 | 107 | 8 |
+|Health for future                                  | 443    | 0 | 24 | 63 |
+|Grundschule Wollmatingen Konstanz                  | 428    | 0 | 86 | 6 |
+|Agentur für Arbeit Konstanz                        | 425    | 0 | 18 | 35 |
+|Abteilung Tagesbetreuung für Kinder                | 393    | 1 | 170 | 13 |
+|BSZ Konstanz                                       | 153    | 1 | 11 | 10 |
+|Gemeinschaftsschule Gebhard Konstanz               | 278    | 1 | 49 | 6 |
+|Hyperstone Swissbit                                | 316    | 1 | 58 | 9 |
+|Mountainbike Club Konstanz e.V.                    | 162    | 1 | 9 | 13 |
+|Wessenberg-Schule Konstanz                         | 351    | 0 | 89 | 24 |
+|Spitalstiftung Konstanz                            | 423    | 1 | 62 | 5 |
+|Team Dingelsdorf                                   | 358    | 0 | 5 | 40 |
+|Los geht’s                                         | 74     | 0 | 6 | 37 |
+|Kliniken Schmieder Konstanz                        | 391    | 0 | 31 | 32 |
+|dreifive                                           | 310    | 0 | 23 | 28 |
+|TINK GmbH                                          | 132    | 0 | 22 | 26 |
+
 
 
 ### Data statistics
