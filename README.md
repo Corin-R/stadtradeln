@@ -22,12 +22,55 @@ The crawling code can be found in [here](https://github.com/Corin-R/stadtradeln/
 
 There is a README explaining the usage and details and possibly changes to the code. 
 
-# Teaser Figures
+# Analysis
 
-![Kilometers](evaluations/km_top_10_teams.png)
+## Kilometers traveled by top 10 teams
 
-![Number of riders](evaluations/Number_Of_Riders_Top_10_Teams.png)
+See these figures
+
+
+![Kilometers](evaluations/km_top_10_teams_f.png)
+
+
+![Kilometers_close](evaluations/km_top_10_teams_closeup.png)
+
+
+The second figure is a closeup of the first week where the competition was quite fierce. 
+
+The blue columns mark the respective weekends. Naturally, the event for Konstanz started at a Saturday and ended on a Friday. 
+
+## Participating Riders per team 
+
+
+![Riders](evaluations/Number_Of_Riders_Top_Teams_f.png)
+
+
+## Weather
+
+The wether data was downloaded after the event from meteoblue.com 
+
+![weather](evaluations/meteogram_history.png)
+
 
 ### Data statistics
 
 ![Crawling Mishaps](evaluations/data_consistency.png)
+
+This figure displays how many times a date appears in the original data. 
+
+With this figure, we can easily identify what went wrong while crawling. 
+
+Most importantly, there are two major gaps.
+
+The first gap spans from 18.06 at 08:00 to 19.06 at 14:00 
+
+The second gap spans from 24.06 at 20:00 to 25.06 at 08:00
+
+The first gap was a mishap from me, when I did not notice that the crawl has suspended. The second gap was me having a good nights rest and noticing at the morning. 
+
+Relatively speaking in the beginning on the 11.06 my PC had a forced windows update, which resetted my time to UTC. That is why there are some timestamps missing at 10:00. 
+
+There are some duplicate timestamps at 20:00 the same day, which is attributed to me resetting my time to local time again. 
+
+Lesson learned, I will timestamp my crawl using utc and not local pc time. 
+
