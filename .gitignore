@@ -1,3 +1,6 @@
 credentials.json
 analysis/
 data/
+*.ipynb
+python_curls/
+scripts/deprecated
