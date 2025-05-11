@@ -67,35 +67,38 @@ class Uploader:
         self.email = credentials[git_variation]["author_email"]
 
     def upload(self):
+        actions = []
         for file_path in self.files:
             with open(file_path, "r") as file:
                 file_content = json.load(file)
                 file.close()
             
-            file_name = file_path.split("/")[-1].replace(".", f"%2E")
-            file_path_in_git =   urllib.parse.quote("data/2025/", safe='') + file_name
-            url = f"{self.url}/projects/{self.project_id}/repository/files/" + file_path_in_git
-
-            headers = {
-                "PRIVATE-TOKEN": self.access_key,
-                "Content-Type": "application/json"
+            action = {
+                "action": "update", 
+                "file_path": file_path[3:],
+                "content" : json.dumps(file_content, indent=4),     
             }
-
-            data = {
-                "branch": "main",
-                "content": json.dumps(file_content, indent=4),
-                "commit_message": f"Update file {file_path.split("/")[-1]}",
-                "author_email": self.email,
-                "author_name": self.name,
-            }
-            
-            # Send the API request
-            response = requests.put(url, headers=headers, data=json.dumps(data).encode('utf-8'), )
-            if(response.status_code == 200):
-                print(response.status_code, response.json())
-            else: 
-                print("Failed to upload file:", response.status_code, response.text)
-                print(response.json())
+            actions.append(action)
+        url = f"{self.url}/projects/{self.project_id}/repository/commits" # + file_path_in_git
+        
+        headers = {
+            "PRIVATE-TOKEN": self.access_key,
+            "Content-Type": "application/json"
+        }
+        data = {
+            "branch": "main",
+            "actions": actions,
+            "commit_message": "Update files",
+            "author_email": self.email,
+            "author_name": self.name,
+        }
+        # Send the API request
+        response = requests.post(url, headers=headers, data=json.dumps(data).encode('utf-8'), )
+        if(response.status_code == 201):
+            print(response.status_code, response.json())
+        else: 
+            print("Failed to upload file:", response.status_code)
+            print(response.json())
                 
             
             
@@ -165,8 +168,25 @@ def parse_my_team(soup):
 
 
 ## i.e. table[1]
-def parse_all_riders(soup):
-    return parse_my_team(soup)
+def parse_all_riders(soup : BeautifulSoup):
+    
+    # Extract the desired data
+    name = soup.find('td').find_next_sibling('td').text.strip()
+    team = soup.find("td").find_next_sibling('td').find("small").text.strip()
+
+    geradelte_km_text = soup.find('td', class_='td-km').find('div', class_='bar_text').text.strip()
+    geradelte_km = float(geradelte_km_text.replace(',', '.'))
+
+    fahrten = int(soup.find('td', class_='td-tracks').find('h3', class_='tracks').text.strip())
+
+    # Create a dictionary with the extracted data
+    row_data = {
+        "name": hash_string(name),
+        "team": team,
+        "geradelte_km": geradelte_km,
+        "fahrten": fahrten,
+    }
+    return row_data
 
 
 ## i.e. table[2]
@@ -199,7 +219,9 @@ def json_private_data(tables, pos):
     for row in tables[pos].find("tbody").find_all("tr"):
         if pos == 2:
             data.append(parse_all_teams(row))
-        else:    
+        elif(pos == 1):    
+            data.append(parse_all_riders(row))
+        elif(pos == 0):
             data.append(parse_my_team(row))
     return data
 
@@ -282,6 +304,7 @@ def main():
                 ## send webhook here 
                 webhook = SyncWebhook.from_url(webhook_url)
                 webhook.send(f"Crawl returned error!\n{e}")
+                print(e)
 
 
         if(last_execution >= datetime(day=21, month=7, year=2025)):
