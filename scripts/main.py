@@ -176,11 +176,14 @@ def parse_all_riders(soup : BeautifulSoup):
     name = soup.find('td').find_next_sibling('td').text.strip()
     team = soup.find("td").find_next_sibling('td').find("small").text.strip()
 
-    geradelte_km_text = soup.find('td', class_='td-km').find('div', class_='bar_text').text.strip()
-    geradelte_km = float(geradelte_km_text.replace(',', '.'))
-
-    fahrten = int(soup.find('td', class_='td-tracks').find('h3', class_='tracks').text.strip())
-
+    try: 
+        geradelte_km_text = soup.find('td', class_='td-km').find('div', class_='bar_text').text.strip() # this breaks
+        geradelte_km = float(geradelte_km_text.replace(',', '.'))
+        
+        fahrten = int(soup.find('td', class_='td-tracks').find('h3', class_='tracks').text.strip())
+    except Exception as e: 
+        geradelte_km = 0
+        fahrten = 0
     # Create a dictionary with the extracted data
     row_data = {
         "name": hash_string(name),
@@ -217,6 +220,12 @@ def parse_all_teams(soup):
     return row_data
 
 def json_private_data(tables, pos):
+    # if(pos == 1):
+    #     print(tables)
+    #     with open("test.txt", "w", encoding="utf-8") as file:
+    #         file.write(tables[pos].prettify())
+    #        file.close()
+    #    return
     data = []
     for row in tables[pos].find("tbody").find_all("tr"):
         if pos == 2:
@@ -297,7 +306,7 @@ def main():
 
                 if(last_execution >= next_push ):
                     print("pushing to gitlab")
-                    uploader.upload()
+                    # uploader.upload()
                     next_push = last_execution + push_period
                 
                 next_execution = last_execution + execution_period
