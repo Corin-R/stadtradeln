@@ -1,0 +1,4 @@
+beautifulsoup4==4.13.4
+pandas==2.3.0
+discord-webhook==1.4.1
+discord=2.3.2

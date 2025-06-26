@@ -8,6 +8,8 @@ import hashlib
 import base64
 import time
 from discord import SyncWebhook
+from datetime import datetime
+import traceback
 
 def hash_string(input_string):
     # Create a SHA-256 hash object
@@ -302,9 +304,10 @@ def main():
                 time.sleep(execution_period.seconds)
             except Exception as e:
                 ## send webhook here 
+                now = datetime.now().isoformat()
                 webhook = SyncWebhook.from_url(webhook_url)
-                webhook.send(f"Crawl returned error!\n{e}")
-                print(e)
+                webhook.send(f"{now}\nCrawl returned error!\n{e}\n{traceback.format_exc()}")
+                print(now,e, traceback.format_exc())
 
 
         if(last_execution >= datetime(day=21, month=7, year=2025)):
