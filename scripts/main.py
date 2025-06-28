@@ -211,12 +211,14 @@ def parse_all_teams(soup):
     geradelte_km_text = soup.find('td', class_='td-km').find('div', class_='bar_text').text.strip()
     geradelte_km = float(geradelte_km_text.replace(',', '.'))
 
-    km_pro_kopf_text = soup.find('td', class_='hidden-xs', attrs={'data-order': '0'}).find('h3').text.strip()
-    km_pro_kopf = float(km_pro_kopf_text.replace(',', '.'))
-
     fahrten = int(soup.find('td', class_='td-tracks').find('h3', class_='tracks').text.strip())
 
     active_radelnde = int(soup.find('td', class_='hidden-xs pr-sm-25').find('h3').text.strip())
+
+    if(active_radelnde == 0):
+        km_pro_kopf = 0
+    else:
+        km_pro_kopf = geradelte_km/active_radelnde
 
     # Create a dictionary with the extracted data
     row_data = {
