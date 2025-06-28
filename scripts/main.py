@@ -5,6 +5,9 @@ from bs4 import BeautifulSoup
 import pandas as pd
 from datetime import datetime, timedelta
 import hashlib
+import re
+from datetime import datetime, timedelta
+import hashlib
 import base64
 import time
 from discord import SyncWebhook
@@ -117,7 +120,13 @@ def extract_row(soup):
     active_radelnde = radelnde_data.find('span', class_='visible-xs aktive-radelnde').text.strip()
     registered_radelnde = radelnde_data.find('span', class_='visible-xs registrierte-radelnde').text.strip()
 
-    km_pro_kopf = soup.find('td', class_='hidden-xs', attrs={'data-order': '0'}).text.strip()
+
+    geradelte_km_int = int(re.findall(r'\d+', geradelte_km)[0])
+    active_radelnde_int = int(re.findall(r'\d+', active_radelnde)[0])
+    if(active_radelnde_int == 0):
+        km_pro_kopf = 0
+    else:
+        km_pro_kopf = int(geradelte_km_int/active_radelnde_int)
     gruendung = soup.find('td', class_='hide').text.strip()
 
     # Create a dictionary with the extracted data
@@ -306,7 +315,7 @@ def main():
 
                 if(last_execution >= next_push ):
                     print("pushing to gitlab")
-                    # uploader.upload()
+                    uploader.upload()
                     next_push = last_execution + push_period
                 
                 next_execution = last_execution + execution_period
