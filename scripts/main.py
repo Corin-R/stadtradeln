@@ -165,7 +165,7 @@ def parse_my_team(soup):
     name = soup.find('td').find_next_sibling('td').text.strip()
 
     geradelte_km_text = soup.find('td', class_='td-km').find('div', class_='bar_text').text.strip()
-    geradelte_km = float(geradelte_km_text.replace(',', '.'))
+    geradelte_km = float(geradelte_km_text.replace('.', '').replace(',', '.'))
 
     fahrten = int(soup.find('td', class_='td-tracks').find('h3', class_='tracks').text.strip())
 
@@ -187,7 +187,7 @@ def parse_all_riders(soup : BeautifulSoup):
 
     try: 
         geradelte_km_text = soup.find('td', class_='td-km').find('div', class_='bar_text').text.strip() # this breaks
-        geradelte_km = float(geradelte_km_text.replace(',', '.'))
+        geradelte_km = float(geradelte_km_text.replace('.', '').replace(',', '.'))
         
         fahrten = int(soup.find('td', class_='td-tracks').find('h3', class_='tracks').text.strip())
     except Exception as e: 
@@ -209,7 +209,7 @@ def parse_all_teams(soup):
     team = soup.find('td', class_='pl-sm-25').text.strip()
 
     geradelte_km_text = soup.find('td', class_='td-km').find('div', class_='bar_text').text.strip()
-    geradelte_km = float(geradelte_km_text.replace(',', '.'))
+    geradelte_km = float(geradelte_km_text.replace('.', '').replace(',', '.'))
 
     fahrten = int(soup.find('td', class_='td-tracks').find('h3', class_='tracks').text.strip())
 
